@@ -21,7 +21,9 @@ require_once "include/entete.inc";
                     echo "<div class='message'>
                             <h3>$data[0]</h3>
                             <span>Envoyé par $data[1]</span>
+                            <br>
                             <span>Date d'envoi: $data[2]</span>
+                            <br>
                             <p>$data[3]</p>
                       </div>";
                 }
