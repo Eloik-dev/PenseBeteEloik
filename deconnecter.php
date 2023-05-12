@@ -11,4 +11,4 @@ session_start();
 
 $_SESSION['message'] = 'Vous avez été déconnecté avec succès';
 
-header('Location: ' . PATH);
+header('Location: /');
