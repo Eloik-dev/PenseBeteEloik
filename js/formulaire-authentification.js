@@ -26,8 +26,8 @@ if (null != formulaire) {
         console.log("Validation de la connexion...")
 
         // Valider les champs
-        const v1 = VerifierTitre(code.querySelector('input').value);
-        const v2 = VerifierDescription(secret.querySelector('input').value);
+        const v1 = VerifierCode(code.querySelector('input').value);
+        const v2 = VerifierSecret(secret.querySelector('input').value);
 
         // Vérifier si tout les champs sont valides
         if (!v1 || !v2) {
