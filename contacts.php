@@ -19,6 +19,7 @@ require_once "include/entete.inc";
             {
                 while ($data = $resultat->fetch_row()) {
                     echo "<div class='message'>
+                            <br>
                             <h3>$data[0]</h3>
                             <span>Envoyé par $data[1]</span>
                             <br>
