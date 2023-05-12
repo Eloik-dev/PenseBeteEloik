@@ -4,8 +4,8 @@ const formulaire = document.querySelector('.formulaire-authentification-containe
 const code = document.querySelector('.code-conteneur');
 const secret = document.querySelector('.secret-conteneur');
 
-const code_erreur = titre.querySelector('.error')
-const secret_erreur = description.querySelector('.error')
+const code_erreur = code.querySelector('.error')
+const secret_erreur = secret.querySelector('.error')
 
 let erreurs = {
     code: [],
