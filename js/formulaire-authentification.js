@@ -53,12 +53,12 @@ const AfficherErreurs = () => {
  */
 const VerifierCode = (valeur) => {
     if (valeur === "") {
-        erreurs.titre.push("Le code est requis");
+        erreurs.code.push("Le code est requis");
         return false;
     }
 
     if (valeur.length < 7) {
-        erreurs.titre.push("Votre code doit être composé d'au moins 7 caractères");
+        erreurs.code.push("Votre code doit être composé d'au moins 7 caractères");
         return false;
     }
 
@@ -72,7 +72,7 @@ const VerifierCode = (valeur) => {
  */
 const VerifierSecret = (valeur) => {
     if (valeur === "") {
-        erreurs.description.push("Le mot de passe est requis");
+        erreurs.secret.push("Le mot de passe est requis");
         return false;
     }
 
