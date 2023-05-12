@@ -23,9 +23,9 @@ require_once "include/entete.inc";
                             <h3>$data[0]</h3>
                             <span>Envoyé par $data[1]</span>
                             <br>
-                            <span>Date d'envoi: $data[2]</span>
+                            <span>Date d'envoi: $data[3]</span>
                             <br>
-                            <p>$data[3]</p>
+                            <p>$data[2]</p>
                       </div>";
                 }
             } else {
