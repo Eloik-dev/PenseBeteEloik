@@ -1,0 +1,336 @@
+body {
+    background-color: #232249;
+}
+
+.photo-de-moi {
+    border-radius: 20px;
+}
+
+.contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.interieur {
+    min-height: 100vh;
+}
+
+/* Page Accueil */
+.mobile-shell .contenu .bouton-modifier-accueil {
+    margin: 20px;
+}
+
+.modification-page-accueil-container form {
+    margin-top: 20px;
+    width: 80% !important;
+}
+
+.modification-page-accueil-container .tinymce {
+    height: 600px;
+    width: 100% !important;
+}
+
+.modification-page-accueil-container form>button {
+    margin: 10px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+/* Messages utilisateurs */
+.message-bienvenue-conteneur {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.message-bienvenue-conteneur span {
+    color: #fff;
+    font-family: 'Muli', Arial, sans-serif;
+    font-size: 20px;
+    margin-left: 0;
+}
+
+/* Alerts */
+.success {
+    color: green;
+    font-weight: 300;
+    padding: 20px;
+    margin: 20px;
+    border: 2px dashed green;
+}
+
+.erreur {
+    color: red;
+    font-weight: 300;
+    padding: 20px;
+    margin: 20px;
+    border: 2px dashed red;
+}
+
+.call-error {
+    display: block;
+    height: 400px;
+    width: 100%;
+    margin-top: 200px;
+
+    font-size: 20px;
+    text-align: center;
+    color: #F00;
+}
+
+/* Notes */
+.notes {
+    gap: 20px;
+}
+
+.notes .unenote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+    box-shadow: 0 5px 5px 1px gray;
+    text-align: left;
+    transition: 250ms;
+}
+
+.notes .unenote:hover {
+    transform: scale(1.05);
+    background-color: lightblue;
+    box-shadow: 0 10px 5px 1px gray;
+}
+
+.notes .unenote p {
+    line-height: 20px;
+}
+
+.notes .unenote a {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    padding: 5px;
+    width: 70px;
+}
+
+.debug {
+    border: 2px solid yellow;
+    padding: 10px;
+}
+
+/* Détails notes */
+.note-details-container .details-note {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    width: 70%;
+    margin-top: 50px;
+}
+
+/* Menu déroulant */
+.menuprincipal {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 70px;
+}
+
+.menuprincipal .icone-authentification {
+    list-style-type: none;
+}
+
+.menuprincipal .icone-authentification i {
+    color: #fff;
+}
+
+.menuprincipal ul li a {
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.menuprincipal ul li a:hover {
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.derouleroule {
+    position: absolute;
+    border-radius: 10px;
+    left: 300px;
+    height: 50px;
+    width: 55px;
+    transition: 100ms;
+    overflow: hidden;
+    background-color: black;
+}
+
+.derouleroule:hover {
+    height: auto;
+    width: 150px;
+}
+
+/* Notifications */
+.notifications {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 100px 0;
+    gap: 20px;
+}
+
+.unenotification {
+    padding: 15px;
+    border-radius: 15px;
+    text-align: left;
+    max-width: 50%;
+    background-color: #d9dde0;
+}
+
+.unenotification h3 {
+    text-align: left;
+}
+
+.erreur {
+    color: red;
+}
+
+/* Formulaires */
+form:not(.formulaire-modification-accueil) {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    width: 30%;
+    gap: 20px;
+}
+
+form:not(.formulaire-modification-accueil) div {
+    display: flex;
+    flex-direction: column;
+}
+
+form:not(.formulaire-modification-accueil) input {
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+}
+
+form:not(.formulaire-modification-accueil) textarea {
+    padding: 15px;
+    border-radius: 10px;
+    outline: none;
+}
+
+form:not(.formulaire-modification-accueil) button {
+    padding: 10px;
+    width: 50%;
+    align-self: center;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Formulaire de connexion */
+form:not(.formulaire-modification-accueil) .aligne {
+    display: block; /* si on ne met pas la balise en block, il sera impossible de spécifier sa largeur */
+    width: 130px; /* espace nécessaire pour écrire les libellés. */
+    float: left; /* pour permettre que les contrôles soient placés sur la même ligne que les libellés */
+    text-align: left;
+    margin-right: 12px;
+}
+
+.ligne-formulaire {
+    margin-bottom: 5px;
+}
+
+form:not(.formulaire-modification-accueil) input {
+    height: 25px;
+    border: 1px solid #C6CED4;
+    border-radius: 3px;
+}
+
+form:not(.formulaire-modification-accueil) input:focus-visible {
+    border: 1px solid #5C9FA0;
+    outline: none;
+}
+
+form:not(.formulaire-modification-accueil) input[type=submit] {
+    font-size: 1em;
+    background-color: #5C9FA0;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    padding: 10px 12px;
+    height: auto;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+/* Formulaire */
+.message-erreur-formulaire {
+    color: #F00;
+}
+
+.controle-erreur {
+    border: 1px solid #F00;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* Gestion */
+.gestion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.gestion-container table td, .gestion-container table {
+    border: 1px dashed black;
+}
+
+.gestion-container table td {
+    padding: 10px;
+}
+
+.gestion-container table button {
+    padding: 5px;
+}
+
+/* Pied de page */
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+footer .liens-sociaux {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+footer .liens-sociaux i {
+    color: #000;
+}
+
+footer #aimeznous {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}

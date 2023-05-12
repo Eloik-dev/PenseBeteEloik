@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Playfair+Display&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    --couleur-accent: #5C9FA0;
+    --couleur-menu: #E5E7EB;
+    --couleur-menu-accent: #D7DAE0;
+    padding: 0;
+    margin: auto;
+    width: 85%;
+    background: #f3f4f6;
+    -webkit-text-size-adjust: none;
+}
+
+a {
+    color: var(--couleur-accent);
+    text-decoration: none
+}
+
+p {
+    padding: 0 !important;
+    margin: 0 !important
+}
+
+img {
+    max-width: 100%;
+}
+
+.entete {
+    padding: 12px;
+    border-radius: 26px 26px 0px 0px;
+    background-color: #ffffff;
+    padding-bottom: 30px;
+}
+
+footer {
+    padding: 50px 30px;
+    border-radius: 0px 0px 26px 26px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+h1 {
+    color: #000000;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 50px;
+    text-align: center;
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+h2 {
+    color: #000000;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px;
+    text-align: center;
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+.soustitre {
+    text-align: center;
+    font-size: 20px;
+}
+
+.sousentete {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.sousentete img {
+    width: 70%;
+}
+
+.contenu {
+    background-color: #ffffff;
+    padding: 20px 15px;
+    color: #666666;
+    font-family: 'Muli', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    padding-bottom: 40px;
+    margin-bottom: 10px;
+    position: relative;   /* pour le z-index */
+    z-index: -1;   /* pour l'effet d'ombre derrière les notes */
+}
+
+.bouton {
+    background: var(--couleur-accent);
+    color: #ffffff;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 12px 30px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 25px;
+    text-transform: uppercase;
+}
+
+.social {
+    width: 34px;
+    height: 34px;
+}
+
+.copyright {
+    color: #999999;
+    font-family: Mulish, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.notes {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.unenote {
+    border: 1px solid #BABFCA;
+    border-radius: 8px;
+    width: 300px;
+    height: 150px;
+    margin: 20px auto;
+    padding: 8px;
+    position: relative;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.unenote .date {
+    font-style: italic;
+    font-size: 0.8em;
+    color: #999999;
+}
+
+.menuprincipal ul {
+    display: inline;
+}
+
+.menuprincipal ul li {
+    display: inline;
+    float: left;
+}
+
+.menuprincipal ul li a {
+    text-decoration: none;
+    color: inherit;
+    padding: 5px 15px;
+    display: block;
+}
+
+.menuprincipal ul li.actif a {
+    color: var(--couleur-accent);
+}
+
+.menuprincipal ul li a:hover {
+    background-color: var(--couleur-menu);
+    border-radius: 8px;
+}
+
+.menumobile {
+    display: none;
+    position: absolute;
+    top: 27px;
+    left: 27px;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menumobile div {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #999999;
+    margin: 6px 0;
+    border-radius: 2px;
+}
+
+@media screen and (max-width : 640px) {
+    .menuprincipal {
+        height: 0px;
+    }
+
+    .menumobile {
+        display: block;
+    }
+
+    .menuprincipal:hover ul {
+        display: block;
+    }
+
+    .menuprincipal ul {
+        display: none;
+        padding: 0;
+        position: absolute;
+        top: 43px;
+        left: 27px;
+    }
+
+    .menuprincipal ul li {
+        display: block;
+        float: none;
+        background-color: var(--couleur-menu);
+        border-top: 1px solid white;
+    }
+
+    .menuprincipal ul li a {
+        padding: 15px;
+    }
+
+    .menuprincipal ul li:first-child {
+        border-top: 3px solid #ffffff;
+    }
+
+    .menumobile-container:hover ul {
+        display: block;
+    }
+
+    .menuprincipal ul li a:hover {
+        background-color: var(--couleur-menu-accent);
+        border-radius: 0;
+    }
+}
