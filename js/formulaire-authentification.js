@@ -57,6 +57,11 @@ const VerifierCode = (valeur) => {
         return false;
     }
 
+    if (isNaN(valeur)) {
+        erreurs.code.push("Le code doit être composé de nombres seulement");
+        return false;
+    }
+
     if (valeur.length < 7) {
         erreurs.code.push("Votre code doit être composé d'au moins 7 caractères");
         return false;
