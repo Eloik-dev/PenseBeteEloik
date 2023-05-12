@@ -12,7 +12,7 @@ require_once "include/entete.inc";
 <div class="contenu contact-container">
     <h2><?php echo PAGE_H1?></h2>
     <?php
-    if (0 == PAGE_PUBLIC && isset($_SESSION['code'])) {
+    if (isset($_SESSION['code'])) {
         echo '<a href="contacts.php">Voir tout les contacts</a>';
     }
     ?>
