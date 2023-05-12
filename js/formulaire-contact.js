@@ -53,7 +53,7 @@ const VerifierNom = (valeur) => {
         return false;
     }
 
-    if (valeur.length <= 5) {
+    if (valeur.length < 5) {
         erreurs.nom.push("Votre nom doit être composé d'au moins 5 caractères");
         return false;
     }

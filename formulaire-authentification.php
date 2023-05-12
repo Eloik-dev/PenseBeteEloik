@@ -7,18 +7,17 @@ require_once "include/entete.inc";
 <div class="contenu formulaire-authentification-container">
     <h2><?php echo PAGE_H1?></h2>
     <form class="formulaire-authentification" method="post" action="verifier-authentification.php">
-        <div class="ligne-formulaire">
+        <div class="code-conteneur">
             <label for="code" class="aligne">* Code : </label>
             <input type="text" id="code" name="code">
+            <span class="error"> </span>
         </div>
-        <div class="ligne-formulaire">
+        <div class="secret-conteneur">
             <label for="motdepasse" class="aligne">* Mot de passe : </label>
             <input type="password" id="motdepasse" name="motdepasse">
+            <span class="error"> </span>
         </div>
-        <div class="ligne-formulaire">
-            <label class="aligne">&nbsp;</label>
-            <input type="submit" id="soumettre" name="soumettre" value="Soumettre">
-        </div>
+        <input type="submit" id="soumettre" name="soumettre" value="Soumettre">
     </form>
 </div>
 <?php require_once "include/pied-page.inc" ?>

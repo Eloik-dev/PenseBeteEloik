@@ -62,7 +62,7 @@ const VerifierTitre = (valeur) => {
         return false;
     }
 
-    if (valeur.length <= 5) {
+    if (valeur.length < 5) {
         erreurs.titre.push("Votre titre doit être composé d'au moins 5 caractères");
         return false;
     }
