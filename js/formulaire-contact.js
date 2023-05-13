@@ -11,6 +11,7 @@ const courriel_erreur = courriel.querySelector('.error')
 const sujet_erreur = sujet.querySelector('.error')
 const message_erreur = message.querySelector('.error')
 
+// Erreurs à prendre en compte
 let erreurs_contact = {
     nom: [],
     courriel: [],
@@ -35,7 +36,7 @@ if (null != formulaire_contact) {
         const v4 = VerifierMessage(message.querySelector('textarea').value);
 
         // Vérifier si tout les champs sont valides
-        if (!v1 || !v2 || !v3 || !v4) {
+        if (e !== undefined && (!v1 || !v2 || !v3 || !v4)) {
             if (erreurs_contact.nom.length > 0) nom_erreur.innerHTML = erreurs_contact.nom;
             if (erreurs_contact.courriel.length > 0) courriel_erreur.innerHTML = erreurs_contact.courriel;
             if (erreurs_contact.sujet.length > 0) sujet_erreur.innerHTML = erreurs_contact.sujet;
@@ -45,6 +46,12 @@ if (null != formulaire_contact) {
     }
 }
 
+/**
+ * Validation du champs de nom
+ * @param valeur
+ * @returns {boolean}
+ * @constructor
+ */
 const VerifierNom = (valeur) => {
     if (valeur === "") {
         erreurs_contact.nom.push("Le nom est requis");
@@ -59,6 +66,12 @@ const VerifierNom = (valeur) => {
     return true;
 }
 
+/**
+ * Validation du champs de courriel
+ * @param valeur
+ * @returns {boolean}
+ * @constructor
+ */
 const VerifierCourriel = (valeur) => {
     const pattern = new RegExp(/.+@.+\..{2,}/);
 
@@ -75,6 +88,12 @@ const VerifierCourriel = (valeur) => {
     return true;
 }
 
+/**
+ * Validation du champs de sujet
+ * @param valeur
+ * @returns {boolean}
+ * @constructor
+ */
 const VerifierSujet = (valeur) => {
     if (valeur === "") {
         erreurs_contact.sujet.push("Le sujet est requis");
@@ -89,6 +108,12 @@ const VerifierSujet = (valeur) => {
     return true;
 }
 
+/**
+ * Validation du champs de message
+ * @param valeur
+ * @returns {boolean}
+ * @constructor
+ */
 const VerifierMessage = (valeur) => {
     if (valeur === "") {
         erreurs_contact.message.push("Le message est requis");

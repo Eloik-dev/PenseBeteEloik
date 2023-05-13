@@ -7,6 +7,8 @@ const secret = formulaire_authentification.querySelector('.secret-conteneur');
 const code_erreur = code.querySelector('.error')
 const secret_erreur = secret.querySelector('.error')
 
+const champs_authentification = formulaire_authentification.querySelectorAll('input');
+
 let erreurs_authentification = {
     code: [],
     secret: []
@@ -38,7 +40,7 @@ const ValidationAuthentification = (e) => {
     const v2 = VerifierSecret(secret.querySelector('input').value);
 
     // Vérifier si tout les champs sont valides
-    if (!v1 || !v2) {
+    if (e !== undefined && (!v1 || !v2)) {
         e.preventDefault();
     }
 
@@ -46,11 +48,20 @@ const ValidationAuthentification = (e) => {
 }
 
 /**
+ * Évènement de perte de focus sur les champs
+ */
+champs_authentification.forEach(champ => {
+    champ.onblur = () => {
+        ValidationAuthentification();
+    }
+});
+
+/**
  * Réinitialise les erreurs affichées à l'écran
  */
 const AfficherErreurs_authentification = () => {
-    code_erreur.innerHTML = erreurs_contact.code;
-    secret_erreur.innerHTML = erreurs_contact.secret;
+    code_erreur.innerHTML = erreurs_authentification.code;
+    secret_erreur.innerHTML = erreurs_authentification.secret;
 }
 
 /**
@@ -60,7 +71,7 @@ const AfficherErreurs_authentification = () => {
  */
 const VerifierCode = (valeur) => {
     if (valeur === "") {
-        erreerreurs_authentificationurs.code.push("Le code est requis");
+        erreurs_authentification.code.push("Le code est requis");
         return false;
     }
 
