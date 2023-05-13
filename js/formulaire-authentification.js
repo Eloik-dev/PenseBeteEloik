@@ -62,7 +62,7 @@ const VerifierCode = (valeur) => {
         return false;
     }
 
-    if (valeur.length === 7) {
+    if (valeur.length !== 7) {
         erreurs.code.push("Votre code doit être composé de 7 caractères");
         return false;
     }
