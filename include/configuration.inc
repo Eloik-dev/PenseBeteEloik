@@ -3,8 +3,8 @@ session_start();
 
 require_once "include/ma-bibliotheque.inc";
 
-define('DEVEL', false);
-define('LOCAL', false);
+define('DEVEL', true);
+define('LOCAL', true);
 define('PATH', LOCAL ? '/pensebete-rousseaueloik' : '');
 
 // Choisir la configuration locale si nous ne sommes pas en production
