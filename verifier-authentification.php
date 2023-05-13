@@ -9,6 +9,20 @@ $motdepasse = htmlspecialchars($_POST['motdepasse']);
 
 $messageErreur = '';
 
+// Vérifier que le code n'est ni nul ou vide
+if (is_null($code)) {
+    $messageErreur .= "Votre code ne peut être nul.</br>";
+} else if (strlen($code) === 0) {
+	$messageErreur .= "Votre code ne peut être vide.</br>";
+}
+
+// Vérifier que le mot de passe n'est pas nul
+if (is_null($motdepasse)) {
+	$messageErreur .= "Votre mot de passe ne peut être nul.</br>";
+} else if (strlen($motdepasse) === 0) {
+	$messageErreur .= "Votre mot de passe ne peut être vide.</br>";
+}
+
 // Voir si l'utilisateur existe et prendre ses données
 $query = "SELECT prenom, nomfamille, courriel, motdepasse, actif FROM usagers WHERE code = ?;";
 $stmt = $mysqli->prepare($query);
@@ -33,7 +47,7 @@ if ($stmt) {
 
                 header('Location: /');
             } else {
-                $messageErreur .= "Les informations de connexion sont invalides ou le compte n'existe pas.";
+                $messageErreur .= "Les informations de connexion sont invalides ou le compte n'existe pas";
             }
         }
     } else {
