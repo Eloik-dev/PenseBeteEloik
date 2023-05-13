@@ -56,7 +56,7 @@ if ($stmt) {
         $_SESSION['erreur'] = "Il y a eu une erreur de notre côté lors de l'envoi de votre commentaire, veuillez réessayer plus tard.";
         echo_debug("Erreur lors de la création du contact : " . $stmt->errno);
     }
-    header("Location: /pensebete-rousseaueloik");
+    header("Location: " . PATH . '/');
 } else {
     echo_debug("Erreur lors de la requête : " . $mysqli->error);
 }
