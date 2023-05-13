@@ -31,25 +31,29 @@ if ($stmt) {
     $stmt->bind_param("s", $code);
     $stmt->execute();
     $stmt->store_result();
+
     if (0 == $stmt->errno) {
         $stmt->bind_result($prenom, $nomfamille, $courriel, $motdepasseBD, $actif);
+	    $stmt->fetch();
 
-        while ($stmt->fetch()) {
-            if (password_verify($motdepasse, $motdepasseBD)) {
-                $_SESSION['code'] = $code;
-                $_SESSION['prenom'] = $prenom;
-                $_SESSION['nomfamille'] = $nomfamille;
-                $_SESSION['courriel'] = $courriel;
-                $_SESSION['actif'] = $actif;
+		if ($stmt->num_rows === 0) {
+			$messageErreur .= "Les informations de connexion sont invalides ou le compte n'existe pas";
+		} else {
+			if (password_verify($motdepasse, $motdepasseBD)) {
+				$_SESSION['code'] = $code;
+				$_SESSION['prenom'] = $prenom;
+				$_SESSION['nomfamille'] = $nomfamille;
+				$_SESSION['courriel'] = $courriel;
+				$_SESSION['actif'] = $actif;
 
-                $_SESSION['message'] = "Vous avez été authentifié avec succès!";
-                $_SESSION['bienvenue'] = "Bienvenue $prenom $nomfamille";
+				$_SESSION['message'] = "Vous avez été authentifié avec succès!";
+				$_SESSION['bienvenue'] = "Bienvenue $prenom $nomfamille";
 
-                header('Location: /');
-            } else {
-                $messageErreur .= "Les informations de connexion sont invalides ou le compte n'existe pas";
-            }
-        }
+				header('Location: /');
+			} else {
+				$messageErreur .= "Les informations de connexion sont invalides ou le compte n'existe pas";
+			}
+		}
     } else {
         $messageErreur .= "Erreur lors de la réquisition de votre compte : " . $stmt->errno;
     }
@@ -62,6 +66,6 @@ require_once "include/nettoyage.inc";
 if ('' != $messageErreur) {
     // Retourner à la page d'accueil et afficher les erreurs au besoin
     $_SESSION['erreur'] = $messageErreur;
-    header("Location: /");
-    die();
 }
+
+header("Location: /");
