@@ -1,4 +1,4 @@
-const formulaire = document.querySelector('.formulaire-note');
+const formulaire_note = document.querySelector('.formulaire-note');
 
 // Extraction des valeurs
 const titre = document.querySelector('.titre-conteneur');
@@ -9,7 +9,7 @@ const titre_erreur = titre.querySelector('.error')
 const description_erreur = description.querySelector('.error')
 const date_erreur = date.querySelector('.error')
 
-let erreurs = {
+let erreurs_note = {
     titre: [],
     description: [],
     date: [],
@@ -19,10 +19,10 @@ let erreurs = {
  * Effectuer les vérifications du titre, de la description, et de la date limite pour un envoi sécuritaire au serveur
  * @param e
  */
-if (null != formulaire) {
-    formulaire.onsubmit = (e) => {
-        erreurs = {titre: [], description: [], date: []};
-        AfficherErreurs();
+if (null != formulaire_note) {
+    formulaire_note.onsubmit = (e) => {
+        erreurs_note = {titre: [], description: [], date: []};
+        AfficherErreurs_note();
 
         const target = e.target;
 
@@ -38,17 +38,17 @@ if (null != formulaire) {
             e.preventDefault();
         }
 
-        AfficherErreurs();
+        AfficherErreurs_note();
     }
 }
 
 /**
  * Réinitialise les erreurs affichées à l'écran
  */
-const AfficherErreurs = () => {
-    titre_erreur.innerHTML = erreurs.titre;
-    description_erreur.innerHTML = erreurs.description;
-    date_erreur.innerHTML = erreurs.date;
+const AfficherErreurs_note = () => {
+    titre_erreur.innerHTML = erreurs_note.titre;
+    description_erreur.innerHTML = erreurs_note.description;
+    date_erreur.innerHTML = erreurs_note.date;
 }
 
 /**
@@ -58,12 +58,12 @@ const AfficherErreurs = () => {
  */
 const VerifierTitre = (valeur) => {
     if (valeur === "") {
-        erreurs.titre.push("Le titre est requis");
+        erreurs_note.titre.push("Le titre est requis");
         return false;
     }
 
     if (valeur.length < 5) {
-        erreurs.titre.push("Votre titre doit être composé d'au moins 5 caractères");
+        erreurs_note.titre.push("Votre titre doit être composé d'au moins 5 caractères");
         return false;
     }
 
@@ -77,12 +77,12 @@ const VerifierTitre = (valeur) => {
  */
 const VerifierDescription = (valeur) => {
     if (valeur === "") {
-        erreurs.description.push("La description est requise");
+        erreurs_note.description.push("La description est requise");
         return false;
     }
 
     if (valeur.length > 100) {
-        erreurs.description.push("La description ne peut être plus longue que 100 caractères")
+        erreurs_note.description.push("La description ne peut être plus longue que 100 caractères")
         return false;
     }
 
@@ -99,12 +99,12 @@ const VerifierDate = (valeur) => {
     const aujourdhui = new Date();
 
     if (isNaN(echeance.getTime())) {
-        erreurs.date.push("La date est requise");
+        erreurs_note.date.push("La date est requise");
         return false;
     }
 
     if (echeance < aujourdhui) {
-        erreurs.date.push("La date ne peut être dans le passé");
+        erreurs_note.date.push("La date ne peut être dans le passé");
         return false;
     }
 

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr-CA">
 <head>
-    <title><?php echo PAGE_TITRE?></title>
+    <title><?php
+	    require_once "include/configuration.inc";
+	    require_once "include/ma-bibliotheque.inc";
+
+        echo PAGE_TITRE?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=<?php echo "DESCRIPTION"//PAGE_DESCRIPTION?>>
@@ -13,13 +17,17 @@
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#00aba9">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mes-styles.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
     <?php
-    require_once "include/configuration.inc";
-    require_once "include/ma-bibliotheque.inc";
-    inclureJsPropreALaPageActuelle(); // Obtenir le fichier javascript correspondant
+    // Inclure CSS et Javascript
+    if (DEVEL) {
+        echo '<link rel="stylesheet" href="css/style.css">
+                <link rel="stylesheet" href="css/mes-styles.css">';
+	    inclureJsPropreALaPageActuelle(); // Obtenir le fichier javascript correspondant
+    } else {
+        echo '<link rel="stylesheet" href="css/style.min.css">
+                <script src="js/app.min.js" defer></script>';
+    }
     ?>
 </head>
 <body>
@@ -30,7 +38,7 @@
                 <div class="liens-conteneur">
                     <ul>
                         <li class="actif"><a href=<?php echo PATH . "/"?>>Accueil</a></li>
-                        <li><a href=<?php echo PATH . "/trier-notes.php"?>>Gestion</a></li>
+                        <li><a href="<?php echo PATH . '/trier-notes.php'; ?>">Gestion</a></li>
                         <li><a href=<?php echo PATH . "/notifications.php"?>>Notifications</a></li>
                         <li class="derouleroule"><a>Plus</a><a href=<?php echo PATH . "/a-propos.php"?>>À propos de moi</a><a
                                     href="formulaire-contact.php">Me

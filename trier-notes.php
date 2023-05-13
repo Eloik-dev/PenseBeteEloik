@@ -6,7 +6,8 @@
 
 require_once "include/configuration.inc";
 require_once "include/ma-bibliotheque.inc";
-require_once "include/entete.inc"
+require_once "include/entete.inc";
+
 ?>
 <div class="contenu gestion-container">
     <h2><?php echo PAGE_H1 ?></h2>
@@ -22,10 +23,11 @@ require_once "include/entete.inc"
         $valides = ['titre' => 'n.titre', 'ajout' => 'n.dateajout', 'limite' => 'n.datelimite', 'importance' => 'n.eisenhower_id'];
         $ordre = $valides[$_SERVER['QUERY_STRING']] ?? $valides['importance'];
 
+        $messageErreur = '';
+
         // Vérifier que l'ordre d'affichage demandé est valide
         if (!in_array($ordre, $valides)) {
-            echo_debug("Cet ordre de recherche n'est pas valide");
-            die();
+            $messageErreur .= "Cet ordre de recherche n'est pas valide.</br>";
         }
 
         // Initialiser les données pour remplir le tableau

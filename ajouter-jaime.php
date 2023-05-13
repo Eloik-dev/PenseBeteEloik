@@ -20,7 +20,7 @@ if (!isset($_POST['commentaire'])) {
 // Si le commentaire est vide, envoyer une erreur
 if (empty($_POST['commentaire'])) {
     $_SESSION['erreur'] = "Il y a eu une erreur lors de l'envoi de votre commentaire, le commentaire ne peut être vide";
-    header("Location: " . PATH);
+    header("Location: " . DEVEL . '/');
     die();
 }
 
@@ -30,7 +30,7 @@ $commentaire = htmlspecialchars($_POST['commentaire']);
 // Vérification de la longueur du commentaire
 if (mb_strlen($commentaire) > 500) {
     $_SESSION['erreur'] = "Il y a eu une erreur lors de l'envoi de votre commentaire, la longueur ne peut être supérieure à 500 caractères";
-    header("Location: " . PATH);
+    header("Location: " . DEVEL . '/');
     die();
 }
 

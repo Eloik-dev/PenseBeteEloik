@@ -4,12 +4,11 @@ session_start();
 require_once "include/ma-bibliotheque.inc";
 
 define('DEVEL', true);
-define('LOCAL', true);
-define('PATH', LOCAL ? '/pensebete-rousseaueloik' : '');
+define('PATH', DEVEL ? '/pensebete-rousseaueloik' : '');
 
 // Choisir la configuration locale si nous ne sommes pas en production
 $mysqli = null;
-if (LOCAL) {
+if (DEVEL) {
     $mysqli = new mysqli("localhost", "root", "mysql", "pensebete_rousseaueloik");
 } else {
     $mysqli = new mysqli("localhost", "u104533880_eloik", "Rousseau123", "u104533880_pensebete");
@@ -62,7 +61,7 @@ if ($stmt) {
 // Afficher un code d'erreur et renvoyer l'utilisateur à la page d'accueil s'il n'est pas authentifié
 if (defined('PAGE_PUBLIC') && 0 == PAGE_PUBLIC && !isset($_SESSION['code'])) {
     $_SESSION['erreur'] = "Vous devez être authentifié pour accéder à cette page. Veuillez vous connecter.";
-    header('Location: /');
+    header('Location: ' . PATH . '/');
 	die();
 }
 

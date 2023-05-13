@@ -68,6 +68,6 @@ if ($stmt) {
 	$messageErreur .= "Erreur lors de la création du contact : code 2";
 }
 
-header("Location: " . PATH);
+header("Location: " . DEVEL . '/');
 
 require_once "include/nettoyage.inc";

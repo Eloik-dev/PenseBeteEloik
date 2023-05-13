@@ -14,13 +14,13 @@ $id = $_GET['id'] ?? null;
 // Si rien n'a été passé en paramètre
 if (null == $id) {
 	$_SESSION['erreur'] = "Aucune note n'a été sélectionnée";
-	header('Location: ' . PATH);
+	header('Location: ' . DEVEL . '/');
 }
 
 // Si le numéro de note n'est pas valide, retourner immédiatement à la page d'accueil
 if (is_nan((int)$id)) {
 	$_SESSION['erreur'] = "Cette note n'est pas valide";
-	header('Location: ' . PATH);
+	header('Location: ' . DEVEL . '/');
 }
 
 /**
@@ -57,7 +57,7 @@ if ($stmt) {
 if ('' != $messageErreur) {
 	// Retourner à la page d'accueil et afficher les erreurs au besoin
 	$_SESSION['erreur'] = $messageErreur;
-	header("Location: " . PATH);
+	header("Location: " . DEVEL . '/');
 	die();
 }
 

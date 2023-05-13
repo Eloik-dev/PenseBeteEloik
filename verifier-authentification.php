@@ -68,4 +68,4 @@ if ('' != $messageErreur) {
     $_SESSION['erreur'] = $messageErreur;
 }
 
-header("Location: /");
+header("Location: " . DEVEL . '/');

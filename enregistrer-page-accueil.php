@@ -23,7 +23,7 @@ if (empty($contenu)) {
 if ('' != $messageErreur) {
 	// Retourner à la page d'accueil et afficher les erreurs au besoin
 	$_SESSION['erreur'] = $messageErreur;
-	header("Location: " . PATH);
+	header("Location: " . DEVEL . '/');
 	die();
 }
 
@@ -44,6 +44,6 @@ if ($stmt) {
 	$_SESSION['erreur'] = "Erreur lors de la modification de la page d'accueil : code 2";
 }
 
-header("Location: /");
+header("Location: " . DEVEL . '/');
 
 require_once "include/nettoyage.inc";
