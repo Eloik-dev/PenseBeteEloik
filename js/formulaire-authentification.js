@@ -18,24 +18,31 @@ let erreurs_authentification = {
  */
 if (null != formulaire_authentification) {
     formulaire_authentification.onsubmit = (e) => {
-        erreurs_authentification = {code: [], secret: []};
-        AfficherErreurs_authentification();
-
-        const target = e.target;
-
-        console.log("Validation de la connexion...")
-
-        // Valider les champs
-        const v1 = VerifierCode(code.querySelector('input').value);
-        const v2 = VerifierSecret(secret.querySelector('input').value);
-
-        // Vérifier si tout les champs sont valides
-        if (!v1 || !v2) {
-            e.preventDefault();
-        }
-
-        AfficherErreurs_authentification();
+        ValidationAuthentification(e);
     }
+}
+
+/**
+ * Valide tous les champs
+ * @param e
+ * @constructor
+ */
+const ValidationAuthentification = (e) => {
+    erreurs_authentification = {code: [], secret: []};
+    AfficherErreurs_authentification();
+
+    console.log("Validation de la connexion...")
+
+    // Valider les champs
+    const v1 = VerifierCode(code.querySelector('input').value);
+    const v2 = VerifierSecret(secret.querySelector('input').value);
+
+    // Vérifier si tout les champs sont valides
+    if (!v1 || !v2) {
+        e.preventDefault();
+    }
+
+    AfficherErreurs_authentification();
 }
 
 /**

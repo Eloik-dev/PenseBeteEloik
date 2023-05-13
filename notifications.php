@@ -32,5 +32,3 @@ require_once "include/entete.inc";
 <?php require "include/pied-page.inc" ?>
 </div>
 </div>
-</body>
-</html>

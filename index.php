@@ -27,7 +27,7 @@ require_once "include/entete.inc";
     <p><?php echo PAGE_TEXTE?></p>
     <div class="notes">
         <?php
-        $requete = "SELECT id, titre, dateajout, datelimite, description FROM notes ORDER BY id;";
+        $requete = "SELECT id, titre, dateajout, datelimite, description FROM notes ORDER BY dateajout DESC;";
         $resultat = $mysqli->query($requete);
 
         if ($resultat) { // Si $resultat n'est pas faux
@@ -45,7 +45,7 @@ require_once "include/entete.inc";
                 echo "<h2>Aucunes notes n'ont été trouvées, veuillez en ajouter une nouvelle.</h2>";
             }
         } else {
-            echo "<h2 class='erreur'>Il y a eu une erreur lors du téléchargement des notes.</h2>";
+            echo "<h2 class='erreur'>Il y a eu une erreur lors du téléchargement des notes, veuillez revenir plus tard.</h2>";
         }
         ?>
     </div>
@@ -61,5 +61,3 @@ require_once "include/entete.inc";
 <?php require_once "include/pied-page.inc" ?>
 </div>
 </div>
-</body>
-</html>

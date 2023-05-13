@@ -6,6 +6,7 @@
 
 $year = date("Y");
 ?>
+</body>
 <footer>
     <div class="liens-sociaux">
         <a href="formulaire-jaime.php" id="aimeznous">Aimez-nous <i class="fa-solid fa-heart"></i></a>
@@ -14,7 +15,8 @@ $year = date("Y");
         <a href="#" target="_blank"><i class="fa-brands fa-lg fa-instagram"></i></a>
         <a href="#" target="_blank"><i class="fa-brands fa-lg fa-linkedin"></i></a>
     </div>
-    <p class="copyright"><?php echo "Éloïk Rousseau - $year" ?></p>
+    <p class="copyright"><?php echo "Site Web par Éloïk Rousseau - $year" ?></p>
 </footer>
+</html>
 <?php
 require_once "nettoyage.inc";

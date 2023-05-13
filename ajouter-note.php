@@ -23,15 +23,15 @@ $messageErreur = '';
  * Vérification des données
  */
 // Titre
-if (null == $titre) {
-    $messageErreur .= "Votre titre ne peut être nul.</br>";
+if (null == $titre || strlen($titre) === 0) {
+    $messageErreur .= "Votre titre ne peut être vide.</br>";
 } else if (strlen($titre) <= 5) {
     $messageErreur .= "Votre titre doit être composé d'au moins 5 caractères.</br>";
 }
 
 // Description
-if (null == $titre) {
-    $messageErreur .= "Votre description ne peut être nulle.</br>";
+if (null == $description || strlen($description) === 0) {
+    $messageErreur .= "Votre description ne peut être vide.</br>";
 } else if (strlen($description) > 100) {
     $messageErreur .= "La description ne peut être plus longue que 100 caractères.</br>";
 }

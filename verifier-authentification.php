@@ -10,16 +10,12 @@ $motdepasse = htmlspecialchars($_POST['motdepasse']);
 $messageErreur = '';
 
 // Vérifier que le code n'est ni nul ou vide
-if (is_null($code)) {
-    $messageErreur .= "Votre code ne peut être nul.</br>";
-} else if (strlen($code) === 0) {
-	$messageErreur .= "Votre code ne peut être vide.</br>";
+if (is_null($code) || strlen($code) === 0) {
+    $messageErreur .= "Votre code ne peut être vide.</br>";
 }
 
 // Vérifier que le mot de passe n'est pas nul
-if (is_null($motdepasse)) {
-	$messageErreur .= "Votre mot de passe ne peut être nul.</br>";
-} else if (strlen($motdepasse) === 0) {
+if (is_null($motdepasse) || strlen($motdepasse) === 0) {
 	$messageErreur .= "Votre mot de passe ne peut être vide.</br>";
 }
 
@@ -36,7 +32,7 @@ if ($stmt) {
         $stmt->bind_result($prenom, $nomfamille, $courriel, $motdepasseBD, $actif);
 	    $stmt->fetch();
 
-		if ($stmt->num_rows === 0) {
+		if ($stmt->num_rows === 0 || 0 === $actif) {
 			$messageErreur .= "Les informations de connexion sont invalides ou le compte n'existe pas";
 		} else {
 			if (password_verify($motdepasse, $motdepasseBD)) {
@@ -44,7 +40,6 @@ if ($stmt) {
 				$_SESSION['prenom'] = $prenom;
 				$_SESSION['nomfamille'] = $nomfamille;
 				$_SESSION['courriel'] = $courriel;
-				$_SESSION['actif'] = $actif;
 
 				$_SESSION['message'] = "Vous avez été authentifié avec succès!";
 				$_SESSION['bienvenue'] = "Bienvenue $prenom $nomfamille";

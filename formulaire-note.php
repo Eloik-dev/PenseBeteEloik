@@ -69,5 +69,3 @@ require_once "include/entete.inc"
 <?php require_once "include/nettoyage.inc" ?>
 </div>
 </div>
-</body>
-</html>
