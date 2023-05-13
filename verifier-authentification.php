@@ -7,27 +7,27 @@ require_once "include/ma-bibliotheque.inc";
 $code = htmlspecialchars($_POST['code']);
 $motdepasse = htmlspecialchars($_POST['motdepasse']);
 
+$messageErreur = '';
+
 // Vérifier que le code n'est pas nul
 if (is_null($code)) {
-    die("Votre code ne peut être nul");
+    $messageErreur .= "Votre code ne peut être nul.</br>";
 }
 
 // Vérifier que le mot de passe n'est pas nul
 if (is_null($motdepasse)) {
-    die("Votre mot de passe ne peut être nul");
+	$messageErreur .= "Votre mot de passe ne peut être nul.</br>";
 }
 
 // Vérifier que le code a 7 nombres
 if (strlen($code) != 7) {
-    die("Votre code n'a pas 7 caractères");
+	$messageErreur .= "Votre code n'a pas 7 caractères.</br>";
 }
 
 // Vérifier que le code contient que des nombres
 if (!is_numeric($code)) {
-    die("Votre code doit contenir que des chiffres");
+	$messageErreur .= "Votre code ne doit contenir que des chiffres.</br>";
 }
-
-$messageErreur = '';
 
 // Voir si l'utilisateur existe et prendre ses données
 $query = "SELECT prenom, nomfamille, courriel, motdepasse, actif FROM usagers WHERE code = ?;";
