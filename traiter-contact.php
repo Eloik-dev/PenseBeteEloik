@@ -3,7 +3,7 @@ require_once "include/configuration.inc";
 require_once "include/ma-bibliotheque.inc";
 
 
-if (empty($_POST['subject'])) {
+if (!isset($_POST['subject'])) {
     require_once "include/entete.inc";
 
     echo "<span class='call-error'>Veuillez utilisez le formulaire pour cette opération</span>";
@@ -68,7 +68,14 @@ if ($stmt) {
 	$messageErreur .= "Erreur lors de la création du contact : code 2";
 }
 
-$_SESSION['message'] = "Votre message a bien été envoyé, regardez régulièrement vos courriels pour une réponse!";
+// Envoyer les messages d'erreur s'il y a lieu
+if ('' != $messageErreur) {
+	// Retourner à la page d'accueil et afficher les erreurs au besoin
+	$_SESSION['erreur'] = $messageErreur;
+} else {
+	$_SESSION['message'] = "Votre message a bien été envoyé, regardez régulièrement vos courriels pour une réponse!";
+}
+
 header("Location: " . PATH . '/');
 
 require_once "include/nettoyage.inc";
