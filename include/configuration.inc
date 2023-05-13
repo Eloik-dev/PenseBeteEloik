@@ -6,6 +6,9 @@ require_once "include/ma-bibliotheque.inc";
 define('DEVEL', true);
 define('PATH', DEVEL ? '/pensebete-rousseaueloik' : '');
 
+$erreur_chargement = "<h2 style='text-align: center; border: 2px dashed #F00; padding: 15px 0; margin: auto auto'>Il y a eu une erreur lors du chargement de la page, veuillez revenir plus tard.</h2>";
+
+
 // Choisir la configuration locale si nous ne sommes pas en production
 $mysqli = null;
 if (DEVEL) {
@@ -16,7 +19,8 @@ if (DEVEL) {
 
 // Vérifier s'il y a des erreurs de connexion à la base de données
 if ($mysqli->connect_errno) {
-    echo_debug("&Eacute;chec lors de la connexion à la base de donn&eacute;es : " . $mysqli->error);
+	echo $erreur_chargement;
+	echo_debug("&Eacute;chec lors de la connexion à la base de donn&eacute;es : " . $mysqli->error);
     exit();
 }
 
@@ -52,10 +56,12 @@ if ($stmt) {
             define('PAGE_TEXTE', $texte);
         }
     } else {
+	    echo $erreur_chargement;
         echo_debug("Il y a eu une erreur lors de la requête : " . $stmt->error);
     }
 } else {
-    echo_debug("Il y a eu une erreur lors de la préparation de la requête : " . $stmt->error);
+	echo $erreur_chargement;
+	echo_debug("Il y a eu une erreur lors de la préparation de la requête : " . $stmt->error);
 }
 
 // Afficher un code d'erreur et renvoyer l'utilisateur à la page d'accueil s'il n'est pas authentifié

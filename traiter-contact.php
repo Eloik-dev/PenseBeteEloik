@@ -68,6 +68,7 @@ if ($stmt) {
 	$messageErreur .= "Erreur lors de la création du contact : code 2";
 }
 
-header("Location: " . DEVEL . '/');
+$_SESSION['message'] = "Votre message a bien été envoyé, regardez régulièrement vos courriels pour une réponse!";
+header("Location: " . PATH . '/');
 
 require_once "include/nettoyage.inc";

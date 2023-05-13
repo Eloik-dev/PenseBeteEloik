@@ -5,7 +5,9 @@
 	    require_once "include/configuration.inc";
 	    require_once "include/ma-bibliotheque.inc";
 
-        echo PAGE_TITRE?></title>
+	    $nomPage = basename($_SERVER['SCRIPT_NAME']);
+
+	    echo PAGE_TITRE?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=<?php echo "DESCRIPTION"//PAGE_DESCRIPTION?>>
@@ -37,9 +39,9 @@
             <nav class="menuprincipal">
                 <div class="liens-conteneur">
                     <ul>
-                        <li class="actif"><a href=<?php echo PATH . "/"?>>Accueil</a></li>
-                        <li><a href="<?php echo PATH . '/trier-notes.php'; ?>">Gestion</a></li>
-                        <li><a href=<?php echo PATH . "/notifications.php"?>>Notifications</a></li>
+                        <li class=<?php echo $nomPage == 'index.php' ? 'actif' : ''?>><a href=<?php echo PATH . "/"?>>Accueil</a></li>
+                        <li class=<?php echo $nomPage == 'trier-notes.php' ? 'actif' : ''?>><a href="<?php echo PATH . '/trier-notes.php'; ?>">Gestion</a></li>
+                        <li class=<?php echo $nomPage == 'notifications.php' ? 'actif' : ''?>><a href=<?php echo PATH . "/notifications.php"?>>Notifications</a></li>
                         <li class="derouleroule"><a>Plus</a><a href=<?php echo PATH . "/a-propos.php"?>>À propos de moi</a><a
                                     href="formulaire-contact.php">Me
                                 contacter</a>
