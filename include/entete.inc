@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mes-styles.css">
-    <script src="https://kit.fontawesome.com/a5b79c22ef.js" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <?php
     require_once "include/configuration.inc";
     require_once "include/ma-bibliotheque.inc";
