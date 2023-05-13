@@ -3,7 +3,6 @@
  * Programme d'ajout d'un commentaire dans la base de données du site
  * @author Éloïk Rousseau <eloik.rousseau@gmail.com>
  */
-
 require_once "include/configuration.inc";
 require_once "include/ma-bibliotheque.inc";
 
@@ -20,7 +19,7 @@ if (!isset($_POST['commentaire'])) {
 // Si le commentaire est vide, envoyer une erreur
 if (empty($_POST['commentaire'])) {
     $_SESSION['erreur'] = "Il y a eu une erreur lors de l'envoi de votre commentaire, le commentaire ne peut être vide";
-    header("Location: " . DEVEL . '/');
+    header("Location: " . PATH . '/');
     die();
 }
 
@@ -30,7 +29,7 @@ $commentaire = htmlspecialchars($_POST['commentaire']);
 // Vérification de la longueur du commentaire
 if (mb_strlen($commentaire) > 500) {
     $_SESSION['erreur'] = "Il y a eu une erreur lors de l'envoi de votre commentaire, la longueur ne peut être supérieure à 500 caractères";
-    header("Location: " . DEVEL . '/');
+    header("Location: " . PATH . '/');
     die();
 }
 

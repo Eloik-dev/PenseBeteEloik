@@ -49,7 +49,7 @@ if ($stmt) {
 				$_SESSION['message'] = "Vous avez été authentifié avec succès!";
 				$_SESSION['bienvenue'] = "Bienvenue $prenom $nomfamille";
 
-				header('Location: /');
+				header('Location: ' . PATH . '/');
 			} else {
 				$messageErreur .= "Les informations de connexion sont invalides ou le compte n'existe pas";
 			}
@@ -68,4 +68,4 @@ if ('' != $messageErreur) {
     $_SESSION['erreur'] = $messageErreur;
 }
 
-header("Location: " . DEVEL . '/');
+header("Location: " . PATH . '/');

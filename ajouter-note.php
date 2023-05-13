@@ -81,7 +81,7 @@ if ($stmt) {
 if ('' != $messageErreur) {
     // Retourner à la page d'accueil et afficher les erreurs au besoin
     $_SESSION['erreur'] = $messageErreur;
-    header("Location: " . DEVEL . '/');
+    header("Location: " . PATH . '/');
     die();
 }
 
@@ -100,6 +100,7 @@ if ($stmt) {
     echo_debug("Erreur lors de la requête : " . $mysqli->error);
 }
 
-header("Location: " . DEVEL . '/');
+$_SESSION['message'] = "La note a été ajoutée avec succès!";
+header("Location: " . PATH . '/');
 
 require_once "include/nettoyage.inc";
